@@ -2,6 +2,13 @@ if not vim.g.neovide then
   return {} -- do nothing if not in a Neovide session
 end
 
+-- fix CMD+C and CMD + V
+vim.g.neovide_input_use_logo = 1
+vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
@@ -22,22 +29,6 @@ return {
         neovide_padding_bottom = 0,
         neovide_padding_right = 0,
         neovide_padding_left = 0,
-      },
-    },
-    mappings = {
-      n = {
-        ["<D-s>"] = { ":w!<cr>", desc = "Save File" },
-        ["<D-v>"] = { '"+P', desc = "Paste from clipboard" },
-      },
-      v = {
-        ["<D-c>"] = { '"+y', desc = "Copy to clipboard" },
-        ["<D-v>"] = { '"+P', desc = "Paste from clipboard" },
-      },
-      c = {
-        ["<D-v>"] = { "<C-R>+", desc = "Paste from clipboard" },
-      },
-      i = {
-        ["<D-v>"] = { '<ESC>l"+Pli', desc = "Paste from clipboard" },
       },
     },
   },
