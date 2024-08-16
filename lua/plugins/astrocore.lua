@@ -57,6 +57,7 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["gD"] = { function() require("telescope.builtin").lsp_references() end, desc = "Goto References" },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus

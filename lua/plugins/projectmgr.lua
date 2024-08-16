@@ -7,7 +7,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>fp"] = { "<Cmd>ProjectMgr<CR>", desc = "Open ProjectMgr panel" },
+            ["<Leader>pp"] = { "<Cmd>ProjectMgr<CR>", desc = "Open ProjectMgr panel" },
           },
         },
       },
